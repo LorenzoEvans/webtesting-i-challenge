@@ -6,10 +6,11 @@ module.exports = {
 };
 
 function succeed(item) {
- if(item.enhancement < 20){
-  
+ while(typeof item === 'object'){
+  if(item.enhancement < 20){
   return item.enhancement + 1 ;
  }
+}
   return { ...item };
 }
 
