@@ -15,13 +15,27 @@ function succeed(item) {
 }
 
 function fail(item) {
+ while(typeof item === 'object'){
+  if (item.enhancement < 15){
+   return item.durability - 5 ;
+
+  }
+  if (item.enhancement > 15){
+   return item.durability - 10 ;
+  }
+  if (item.enhancement > 16){
+   return item.enhancement - 1 ;
+  }
+ }
   return { ...item };
 }
 
 function repair(item) {
+ while(typeof item === 'object'){
   if (item.durability !== 100){
    return item.durability = 100
   }
+ }
   return { ...item };
 }
 
