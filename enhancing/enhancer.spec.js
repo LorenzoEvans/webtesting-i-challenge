@@ -18,13 +18,15 @@ const { sword, armor } = mockItems ;
 
 describe('repair sets durability to 100.', () => {
  it('Returns an item with durability restored to 100', () => {
-  expect((repair(sword))).toBe(100);
+  expect((repair(sword))).toBe(100); //assertion
   expect(sword.durability).not.toBeLessThan(100);
  });
 });
 
 describe('succeed increases enhancements up to 20.', () => {
  it('Returns an item with an enhancement increased by one.', () => {
-  
+  const { enhancement } = armor ;
+  expect(succeed(armor)).toBe(enhancement + 1)
+  expect(succeed(armor)).toBeGreaterThan(enhancement)
  })
 })
