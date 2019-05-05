@@ -16,9 +16,14 @@ const mockItems = {
   name: "Guildsman",
   durability: 54,
   enhancement: 17,
+ },
+ helmet: {
+  name: "Satellite",
+  durability: 70,
+  enhancement: 16,
  }
 };
-const { sword, armor, shield } = mockItems ;
+const { sword, armor, shield, helmet } = mockItems ;
 
 
 describe('repair sets durability to 100.', () => {
@@ -38,9 +43,14 @@ describe('succeed increases enhancements up to 20.', () => {
 
 describe('fail alters enhancement or durability accordingly.', () => {
  const { enhancement, durability } = shield ;
- const enhancementArmor = armor.enhancement ;
+ const armorDur = armor.durability ;
+ const helmetDur = helmet.durability ;
 it('Alters item properties according to client specs.', () => { 
+ expect(fail(armor)).toBe(armorDur - 5)
+ expect(fail(armor)).toBeLessThan(61)
  expect(fail(shield)).toBe(enhancement - 1)
-})
+ expect(fail(shield)).toBeLessThan(17)
+ expect(fail(helmet)).toBe(helmetDur - 10)
+ })
 })
 
