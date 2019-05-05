@@ -16,7 +16,6 @@ const mockItems = {
 
 describe('repair sets durability to 100.', () => {
  const { sword, armor } = mockItems ;
- const {durability} = sword ;
  it('Returns an item with durability restored to 100', () => {
   expect((repair(sword))).toBe(100)
   expect(sword.durability).not.toBeLessThan(100)
